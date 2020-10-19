@@ -2,7 +2,7 @@
 This repository contains relevant documents for CPP/BLockchain course assignment. 
 "voting.sol" is the original contract. Other files extend the sample voting contract with more functions from the following perspectives:
 
-- Self destruct
+- Self Destruct
 - Time Constraints
 - No Repeated Votes
 - State Machine
