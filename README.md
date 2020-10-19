@@ -1,4 +1,4 @@
-# CPP-BLockchain-assignment
+# CPP-Blockchain-Assignment
 This repository contains relevant documents for CPP/BLockchain course assignment. 
 "voting.sol" is the original contract. Others extend the sample voting contract with more functions from the following perspectives:
 
