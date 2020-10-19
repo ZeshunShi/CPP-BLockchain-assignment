@@ -6,7 +6,14 @@ contract Voting {
 		string name;
 		address ads;       
 		uint votes;   
-	}    
+	}
+
+	struct voter {
+    	address addr;
+		bool voted;	    	
+    }
+    mapping (address => voter) public voterPool;
+	        
 
 	candidate[3] candidatelist;   
 
@@ -32,12 +39,16 @@ contract Voting {
 	}   
 
 	function voteCandidate(uint id)
-		public  
+		public
+		payable  
 	{
+        require (voterPool[msg.sender].voted == false);
+        require (msg.value >=  0.1 ether );
 	    if (id<candidatelist.length) {
-	    	candidatelist[id].votes+=1;	    	
+	    	candidatelist[id].votes+=1;
+	    	voterPool[msg.sender].voted == true;	    	
 	    }          
-    }        
+    }       
 
 	function getVoteResults(uint id)
 		public

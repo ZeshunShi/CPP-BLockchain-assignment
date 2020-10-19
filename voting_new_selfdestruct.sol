@@ -14,13 +14,13 @@ contract Voting {
 	constructor()
 		public
 	{
-    owner=msg.sender;       
-	candidatelist[0].name='Peter';       
-	candidatelist[0].votes=0;       
-	candidatelist[1].name='George';       
-	candidatelist[1].votes=0;       
-	candidatelist[2].name='Richard';       
-	candidatelist[2].votes=0;   
+	    owner=msg.sender;       
+		candidatelist[0].name='Peter';       
+		candidatelist[0].votes=0;       
+		candidatelist[1].name='George';       
+		candidatelist[1].votes=0;       
+		candidatelist[2].name='Richard';       
+		candidatelist[2].votes=0;   
 	}     
 
 	function getCandidate(uint id)

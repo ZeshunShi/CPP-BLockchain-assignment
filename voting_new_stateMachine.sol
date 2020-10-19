@@ -24,13 +24,13 @@ contract Voting {
 	constructor()
 		public
 	{       
-	candidatelist[0].name='Peter';       
-	candidatelist[0].votes=0;       
-	candidatelist[1].name='George';       
-	candidatelist[1].votes=0;       
-	candidatelist[2].name='Richard';       
-	candidatelist[2].votes=0;
-    VoteState = State.Ready;   
+		candidatelist[0].name='Peter';       
+		candidatelist[0].votes=0;       
+		candidatelist[1].name='George';       
+		candidatelist[1].votes=0;       
+		candidatelist[2].name='Richard';       
+		candidatelist[2].votes=0;
+	    VoteState = State.Ready;   
 	}     
 
 	function getCandidate(uint id)
