@@ -9,7 +9,7 @@ contract Voting {
 	}
 
 	struct voter {
-    	address addr;
+    		address addr;
 		bool voted;	    	
     }
     mapping (address => voter) public voterPool;
