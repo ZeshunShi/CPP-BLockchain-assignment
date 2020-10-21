@@ -49,7 +49,7 @@ contract Voting {
         require (msg.value >=  0.1 ether );
         if (id<candidatelist.length) {
             candidatelist[id].votes+=1;
-            voterPool[msg.sender].voted == true;            
+            voterPool[msg.sender].voted = true;            
         }          
     }       
 
