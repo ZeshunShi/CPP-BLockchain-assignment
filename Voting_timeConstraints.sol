@@ -50,7 +50,7 @@ contract Voting {
     {
         if (id<candidatelist.length) {           
             return candidatelist[id].name;      
-    }   
+        }   
     }   
 
     function voteCandidate(uint id)
