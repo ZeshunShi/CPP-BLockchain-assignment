@@ -38,7 +38,7 @@ contract Voting {
         candidatelist[2].ads = 0x1727Fb67D31993494114d2fE171DC902085Cc323;       
         candidatelist[2].votes=0;   
         voteStartTime = now;
-        voteEndTime = voteStartTime + 1 days;
+        voteEndTime = voteStartTime + 1 hours;
     }     
 
     function getCandidate(uint id)
