@@ -43,7 +43,8 @@ contract Voting {
 
     function getCandidate(uint id)
         public
-        checkTimeAfter(voteStartTime)   
+        checkTimeAfter(voteStartTime)
+        checkTimeBefore(voteEndTime)     
         view 
         returns(string memory)
     {
