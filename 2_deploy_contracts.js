@@ -1,5 +1,5 @@
-const Wrestling = artifacts.require("./Wrestling.sol")
+const Voting = artifacts.require("Voting");
 
-module.exports = function(deployer) {
-	deployer.deploy(Wrestling);
+module.exports = function (deployer) {
+  deployer.deploy(Voting);
 };
