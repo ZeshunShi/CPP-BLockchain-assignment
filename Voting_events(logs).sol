@@ -34,7 +34,9 @@ contract Voting {
         candidatelist[1].votes = 0;       
         candidatelist[2].name = 'Richard';       
         candidatelist[2].ads = 0x1727Fb67D31993494114d2fE171DC902085Cc323;       
-        candidatelist[2].votes=0;   
+        candidatelist[2].votes=0; 
+        voteStartTime = now;
+        voteEndTime = voteStartTime + 1 hours;  
         VoteState = State.Ready;   
         emit VoteStateModified(msg.sender, now, State.Ready);
     }     
