@@ -1,18 +1,29 @@
 pragma solidity > 0.5.0;
 
+/* Define the smart contract Voting*/
 contract Voting {  
 
+    /*
+      Define a data structure called candidate
+    */
     struct candidate {       
+        /* Name of the candidate */
         string name;
+        /* The Blockchain address of the candidate. This is not directly used in 
+         this contract, but please think about what can it be used for? */
         address ads;       
+        /* Count the voting results of the candidate */
         uint votes;   
     }    
 
+    /* The list of all candidates. The example we only accepts three candidates */
     candidate[3] candidatelist;   
 
+    /* The constructor function of the contract */
     constructor()
         public
     {       
+        /* Initialize three candidates; their names, addresses and votes */
         candidatelist[0].name = 'Peter';       
         candidatelist[0].ads = 0x68B87b5eb0908a23FC68788968a67A6d988aC255;       
         candidatelist[0].votes = 0;       
@@ -24,6 +35,7 @@ contract Voting {
         candidatelist[2].votes=0;   
     }     
 
+    /* Get a specific candidate based on their id: 0-2 */
     function getCandidate(uint id)
         public 
         view 
@@ -34,6 +46,7 @@ contract Voting {
     }   
     }   
 
+    /* Vote a specific candidate */
     function voteCandidate(uint id)
         public  
     {
@@ -42,6 +55,7 @@ contract Voting {
         }          
     }        
 
+    /* Get the voting results of a specific candidate */
     function getVoteResults(uint id)
         public
         view
