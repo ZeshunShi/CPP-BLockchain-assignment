@@ -1,0 +1,6 @@
+// check https://en.wikipedia.org/wiki/List_of_sensors
+
+("20211125","Geophone","Sound", "A geophone is a sensor device that converts ground movement (velocity) into voltage", "1")
+("20211126","Air pollution sensor","Environment", "Air pollution sensors are devices that monitor the presence of air pollution in the surrounding area.", "2")
+("20211127","Microwave chemistry sensor","Chemical", "A microwave chemistry sensor can detect several chemical materials including: Lead, Mercury, and Oxygen", "3")
+
