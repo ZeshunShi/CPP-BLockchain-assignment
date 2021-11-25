@@ -48,12 +48,12 @@ abi = '''
 #Replace with real deployed contract address
 address = Web3.toChecksumAddress("0xeab01dba3ef110d5584f3315f2b3e4a86d04eb94")
 StoreIntegerValue = w3.eth.contract(
-    address, abi=abi, ContractFactoryClass=ConciseContract)
+address, abi=abi, ContractFactoryClass=ConciseContract)
 
-#Replace with real account address for raspi
-raspi = 0x907c1a1c053ac1d01bda773b9a36b8ffd00c1cc4
+#Replace with real account address for sensor
+sensor = 0x907c1a1c053ac1d01bda773b9a36b8ffd00c1cc4
 
 #Example function to submit data to the block chain
 def submitSensorData(data):
     #note that data must be an integer,
-    StoreIntegerValue.setSensorData(int(data), transact={'from': raspi})
+    StoreIntegerValue.setSensorData(int(data), transact={'from': sensor})
