@@ -19,13 +19,14 @@ contract SensorDataTest {
         uint deposit; 
     }
 
-    // //threshold value set by government
-    uint public threshold=10;
-
+    // sensor data mapping
     mapping(address => SensorData) public sensorDataArray;
     address payable [] public sensorAddresses;
 
 
+    /*
+    //   Define an add sensor data function
+    // */
     function addSensorData (uint _sensorId, string memory _sensorName, string memory _sensorType, string memory _sensorInfo, uint  _gatewayID) 
         public
         payable
@@ -33,8 +34,8 @@ contract SensorDataTest {
         // checkTimeBefore(setupEnd)
         returns(bool setupAuctionSuccess)
     {
-        require (sensorAddresses.length >= 0 && sensorAddresses.length <= threshold);
-        require (msg.value >=  1 );
+        require (sensorAddresses.length >= 0);
+        require (msg.value >=  1);
         sensorDataArray[msg.sender].sensorId = _sensorId;
         sensorDataArray[msg.sender].sensorInfo = _sensorInfo;
         sensorDataArray[msg.sender].sensorName = _sensorName;
@@ -45,38 +46,15 @@ contract SensorDataTest {
         return true;        
     }
 
-//get all data stream count
+// get all data stream count
     function getDataStreamCount() public view returns(uint) {
         return sensorAddresses.length;
-    }
-
-
-//get current sensor threshold value set
-    function getSensorThresholdValue() public view returns(uint) {
-        return threshold;
-    }
-
-
-//set sensor threshold value set
-    function setSensorThresholdValue(uint newthreshold) public  {
-       threshold=newthreshold;
     }
 
 // set a sensor register function so that only registered sensors can submit data
     function sensorRegister() public  {
     }
 
-// set a time window for sensors to submit data
-    function submitTime() public  {
-    }
-
-// set requirement so that same data will not come in
-    function checkDuplicate() public  {
-    }
-
-// set deposit threshold that only sensors who submit the deposit can submit new data
-    function checkDeposit() public  {
-    }
 }
 
 
