@@ -17,10 +17,13 @@ contract SensorDataTest {
         uint gatewayID;
         // Sensor deposit
         uint deposit; 
+        // Unix time stamp
+        uint timeStamp;
     }
 
-    // sensor data mapping
+    // Sensor data mapping
     mapping(address => SensorData) public sensorDataArray;
+    // Sensor addresses
     address payable [] public sensorAddresses;
 
 
@@ -42,16 +45,17 @@ contract SensorDataTest {
         sensorDataArray[msg.sender].sensorType = _sensorType;
         sensorDataArray[msg.sender].gatewayID = _gatewayID;
         sensorDataArray[msg.sender].deposit = msg.value;
+        sensorDataArray[msg.sender].timeStamp = now;
         sensorAddresses.push(msg.sender);
         return true;        
     }
 
-// get all data stream count
-    function getDataStreamCount() public view returns(uint) {
+// Get sensor numbers
+    function getSensorNumber() public view returns(uint) {
         return sensorAddresses.length;
     }
 
-// set a sensor register function so that only registered sensors can submit data
+// Set a sensor register function so that only registered sensors can submit data
     function sensorRegister() public  {
     }
 
