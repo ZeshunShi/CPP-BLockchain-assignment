@@ -33,16 +33,13 @@ contract SensorDataTest {
     function addSensorData (uint _sensorId, string memory _sensorName, string memory _sensorType, string memory _sensorInfo, uint  _gatewayID) 
         public
         payable
-        // checkTimeAfter(startTime)
-        // checkTimeBefore(setupEnd)
         returns(bool setupAuctionSuccess)
     {
         require (sensorAddresses.length >= 0);
-        require (msg.value >=  1);
         sensorDataArray[msg.sender].sensorId = _sensorId;
-        sensorDataArray[msg.sender].sensorInfo = _sensorInfo;
         sensorDataArray[msg.sender].sensorName = _sensorName;
         sensorDataArray[msg.sender].sensorType = _sensorType;
+        sensorDataArray[msg.sender].sensorInfo = _sensorInfo;
         sensorDataArray[msg.sender].gatewayID = _gatewayID;
         sensorDataArray[msg.sender].deposit = msg.value;
         sensorDataArray[msg.sender].timeStamp = now;
@@ -55,13 +52,4 @@ contract SensorDataTest {
         return sensorAddresses.length;
     }
 
-// Set a sensor register function so that only registered sensors can submit data
-    function sensorRegister() public  {
-    }
-
 }
-
-
-
-
-
