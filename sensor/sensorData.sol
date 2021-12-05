@@ -1,6 +1,6 @@
 pragma solidity > 0.4.4;
 
-contract SensorDataTest {
+contract SensorData {
     /*
     //   Define a data structure to store sensor data
     // */
@@ -11,8 +11,8 @@ contract SensorDataTest {
         string sensorName;
         // Type of the sensor
         string sensorType;
-        // Other sensor infomation
-        string sensorInfo;
+        // Sensor infomation
+        string sensorValue;
         // Gateway ID of the sensor
         uint gatewayID;
         // Sensor deposit
@@ -22,7 +22,9 @@ contract SensorDataTest {
     }
 
     // Sensor data mapping
-    mapping(address => SensorData) public sensorDataArray;
+    mapping(uint => SensorData) public sensorDataArray;
+    uint[] public dataID;
+
     // Sensor addresses
     address payable [] public sensorAddresses;
 
@@ -30,19 +32,19 @@ contract SensorDataTest {
     /*
     //   Define an add sensor data function
     // */
-    function addSensorData (uint _sensorId, string memory _sensorName, string memory _sensorType, string memory _sensorInfo, uint  _gatewayID) 
+    function addSensorData (uint _dataID, uint _sensorId, string memory _sensorName, string memory _sensorType, string memory _sensorValue, uint  _gatewayID) 
         public
         payable
         returns(bool setupAuctionSuccess)
     {
         require (sensorAddresses.length >= 0);
-        sensorDataArray[msg.sender].sensorId = _sensorId;
-        sensorDataArray[msg.sender].sensorName = _sensorName;
-        sensorDataArray[msg.sender].sensorType = _sensorType;
-        sensorDataArray[msg.sender].sensorInfo = _sensorInfo;
-        sensorDataArray[msg.sender].gatewayID = _gatewayID;
-        sensorDataArray[msg.sender].deposit = msg.value;
-        sensorDataArray[msg.sender].timeStamp = now;
+        sensorDataArray[_dataID].sensorId = _sensorId;
+        sensorDataArray[_dataID].sensorName = _sensorName;
+        sensorDataArray[_dataID].sensorType = _sensorType;
+        sensorDataArray[_dataID].sensorValue = _sensorValue;
+        sensorDataArray[_dataID].gatewayID = _gatewayID;
+        sensorDataArray[_dataID].deposit = msg.value;
+        sensorDataArray[_dataID].timeStamp = now;
         sensorAddresses.push(msg.sender);
         return true;        
     }
